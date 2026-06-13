@@ -11,7 +11,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:68px}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#f5f0eb;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}html{background:#0a0a0f;background:linear-gradient(180deg,#0f0906 0%,#0b0a10 30%,#0a0a0f 55%,#08080c 100%);min-height:100%}.main,.container,section,nav,footer,header{background:transparent}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#f5f0eb;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}html{background:#0a0a0f;background:linear-gradient(135deg,#120a08 0%,#0d0b14 20%,#0a0a0f 45%,#08080c 70%,#0c0810 100%);min-height:100%}.main,.container,section,nav,footer,header{background:transparent}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -45,8 +45,8 @@ ul{list-style:none}
 /* Hero */
 .hero{min-height:calc(100vh-64px);display:grid;grid-template-columns:0.95fr 1.05fr;align-items:center;gap:40px;padding:100px 24px 60px;max-width:1200px;margin:0 auto;background:transparent}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:8px;border:1px solid rgba(201,169,110,.25);background:rgba(201,169,110,.08);color:#c9a96e;font-size:.82rem;margin-bottom:24px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:0.95;color:#f5f0eb;margin-bottom:24px}
-.hero p{max-width:480px;font-size:1.05rem;line-height:1.8;color:rgba(245,240,235,.6);margin-bottom:32px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:0.95;color:#c9a96e;margin-bottom:24px}
+.hero p{max-width:480px;font-size:1.05rem;line-height:1.8;color:rgba(245,240,235,.75);margin-bottom:32px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 24px;border-radius:8px;font-weight:600;font-size:.9rem;border:none;cursor:pointer;transition:all .3s}
 .btn-primary{background:#b91c1c;color:#fff;box-shadow:0 4px 24px rgba(185,28,28,.3)}
@@ -149,6 +149,8 @@ ul{list-style:none}
 main{position:relative;z-index:1}
 main::before{content:"";position:fixed;top:-30vh;left:50%;transform:translateX(-50%);width:100vw;height:80vh;background:radial-gradient(ellipse at center top,rgba(201,169,110,.04) 0%,rgba(185,28,28,.02) 40%,transparent 70%);pointer-events:none;z-index:-1}
 </head>
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 600px 400px at 50% 20%,rgba(201,169,110,.06) 0%,rgba(185,28,28,.03) 40%,transparent 70%);pointer-events:none;z-index:0}
+body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 500px 300px at 80% 80%,rgba(201,169,110,.04) 0%,transparent 60%);pointer-events:none;z-index:0}
 <body>
 
 <nav class="navbar" id="navbar">
@@ -168,16 +170,16 @@ main::before{content:"";position:fixed;top:-30vh;left:50%;transform:translateX(-
 <main>
 <section class="hero" id="hero">
   <div class="hero-text fade-up visible">
-    <p class="hero-badge">熟女人妻 · 床上开放 · 无底线的暧昧</p>
-    <h1>喵喵酱</h1>
-    <p>来自中国的31岁性感人妻，熟透的身体随时为你敞开。私房约拍可以脱到只剩眼神，旅行陪同可以陪到床上，上门按摩可以从脚踝舔到锁骨。靠近之前先谈好尺度，靠近之后你想怎么玩都行——只要你说出口，喵喵酱就陪你演到底。</p>
+    <p class="hero-badge">🔥 熟透人妻 · 床上全开放 · 底线？不存在的</p>
+    <h1>喵喵酱 <span style="color:#b91c1c;font-style:italic">· 等你来</span></h1>
+    <p><span style="color:#f5f0eb">来自中国的31岁</span> <span style="color:#ff6b6b">性感人妻</span>，熟透的身体<span style="color:#f5f0eb">随时为你敞开</span>。<br>私房约拍<span style="color:#c9a96e">可以脱到只剩眼神</span>，旅行陪同<span style="color:#ff6b6b">可以陪到床上</span>，上门按摩<span style="color:#c9a96e">可以从脚踝舔到锁骨</span>。<br>靠近之前先谈好尺度，靠近之后<span style="color:#f5f0eb;font-weight:600">你想怎么玩都行</span>——只要你说出口，喵喵酱就<span style="color:#ff6b6b;font-weight:600">陪你演到底</span>。</p>
     <div class="hero-actions">
       <a href="#booking" class="btn btn-primary">预约靠近</a>
       <a href="#portfolio" class="btn btn-outline">查看作品</a>
     </div>
   </div>
   <div class="hero-image fade-up delay-2">
-    <img src="media/ComfyUI_01086_.jpg" alt="喵喵酱主视觉" loading="eager">
+    <img src="media/hero.jpeg" alt="喵喵酱主视觉" loading="eager">
     <div class="gradient"></div>
     <div class="hero-stats">
       <div class="hero-stat"><p class="hero-stat-num">12+</p><p class="hero-stat-label">暧昧视觉</p></div>
@@ -225,32 +227,32 @@ main::before{content:"";position:fixed;top:-30vh;left:50%;transform:translateX(-
     </div>
     <div class="video-grid fade-up delay-1">
       <div class="video-card" data-src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/1771435134000.mov">
-        <video src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/1771435134000.mov" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <video poster="media/ComfyUI_00179_.jpg" src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/1771435134000.mov" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
         <div class="play-overlay"><div class="play-btn">▶</div></div>
         <span class="vlabel">手指划过乳沟·缓慢自摸</span>
       </div>
       <div class="video-card" data-src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/8a4b3bcc54b44b50aadfde1fd28ceafc.mov">
-        <video src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/8a4b3bcc54b44b50aadfde1fd28ceafc.mov" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <video poster="media/ComfyUI_00180_.jpg" src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/8a4b3bcc54b44b50aadfde1fd28ceafc.mov" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
         <div class="play-overlay"><div class="play-btn">▶</div></div>
         <span class="vlabel">全身赤裸侧躺·双腿微微张开</span>
       </div>
       <div class="video-card" data-src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/IMG_0027.mov">
-        <video src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/IMG_0027.mov" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <video poster="media/ComfyUI_00187_.jpg" src="https://github.com/sqsqsqqwq/miaohu-homepage/releases/download/v1/IMG_0027.mov" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
         <div class="play-overlay"><div class="play-btn">▶</div></div>
         <span class="vlabel">自慰呻吟·高潮颤抖</span>
       </div>
       <div class="video-card" data-src="media/1000036401.mp4">
-        <video src="media/1000036401.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <video poster="media/ComfyUI_00190_.jpg" src="media/1000036401.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
         <div class="play-overlay"><div class="play-btn">▶</div></div>
         <span class="vlabel">浴室自拍·水流顺着乳沟滑下</span>
       </div>
       <div class="video-card" data-src="media/1000036402.mp4">
-        <video src="media/1000036402.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <video poster="media/ComfyUI_00192_.jpg" src="media/1000036402.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
         <div class="play-overlay"><div class="play-btn">▶</div></div>
         <span class="vlabel">床上自慰·呻吟喘息声</span>
       </div>
       <div class="video-card" data-src="media/126227.mp4">
-        <video src="media/126227.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <video poster="media/ComfyUI_00200_.jpg" src="media/126227.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
         <div class="play-overlay"><div class="play-btn">▶</div></div>
         <span class="vlabel">脱衣舞·内衣一件件剥落</span>
       </div>
