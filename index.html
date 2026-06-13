@@ -11,7 +11,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:68px}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0a0a0f;color:#f5f0eb;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}html{background:#0a0a0f}.main,.container,section,nav,footer,header{background:#0a0a0f}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#f5f0eb;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}html{background:#0a0a0f;background:linear-gradient(180deg,#0f0906 0%,#0b0a10 30%,#0a0a0f 55%,#08080c 100%);min-height:100%}.main,.container,section,nav,footer,header{background:transparent}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -21,7 +21,7 @@ ul{list-style:none}
 
 /* Container */
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
-.section{padding:80px 0} section{background:#0a0a0f}
+.section{padding:80px 0} section{background:transparent}
 
 /* Typography */
 .font-display{font-family:'Playfair Display',serif}
@@ -43,7 +43,7 @@ ul{list-style:none}
 .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}
 
 /* Hero */
-.hero{min-height:calc(100vh-64px);display:grid;grid-template-columns:0.95fr 1.05fr;align-items:center;gap:40px;padding:100px 24px 60px;max-width:1200px;margin:0 auto;background:#0a0a0f}
+.hero{min-height:calc(100vh-64px);display:grid;grid-template-columns:0.95fr 1.05fr;align-items:center;gap:40px;padding:100px 24px 60px;max-width:1200px;margin:0 auto;background:transparent}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:8px;border:1px solid rgba(201,169,110,.25);background:rgba(201,169,110,.08);color:#c9a96e;font-size:.82rem;margin-bottom:24px}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:0.95;color:#f5f0eb;margin-bottom:24px}
 .hero p{max-width:480px;font-size:1.05rem;line-height:1.8;color:rgba(245,240,235,.6);margin-bottom:32px}
@@ -55,7 +55,7 @@ ul{list-style:none}
 .btn-outline:hover{border-color:#c9a96e;color:#c9a96e}
 .hero-image{position:relative;min-height:540px;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,.06);box-shadow:0 8px 48px rgba(0,0,0,.4)}
 .hero-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
-.hero-image .gradient{position:absolute;inset:0;background:linear-gradient(to top,#0a0a0f,rgba(10,10,15,.06),transparent)}
+.hero-image .gradient{position:absolute;inset:0;background:linear-gradient(to top,#0b0a10,rgba(11,10,16,.06),transparent)}
 .hero-stats{position:absolute;bottom:20px;left:20px;right:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .hero-stat{padding:14px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:rgba(10,10,15,.55);backdrop-filter:blur(8px)}
 .hero-stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;color:#c9a96e}
@@ -73,7 +73,7 @@ ul{list-style:none}
 .portfolio-item{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:10px;border:1px solid rgba(255,255,255,.06);cursor:pointer}
 .portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .portfolio-item:hover img{transform:scale(1.05)}
-.portfolio-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#0a0a0f 0%,transparent 50%,transparent 100%)}
+.portfolio-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#0b0a10 0%,transparent 50%,transparent 100%)}
 .portfolio-item .info{position:absolute;bottom:16px;left:16px;right:16px;z-index:1}
 .portfolio-item .info .cat{font-size:.78rem;color:#c9a96e;margin-bottom:2px}
 .portfolio-item .info .title{font-family:'Playfair Display',serif;font-size:1.4rem;color:#f5f0eb}
@@ -146,6 +146,8 @@ ul{list-style:none}
 .menu-toggle{display:flex}
 }
 </style>
+main{position:relative;z-index:1}
+main::before{content:"";position:fixed;top:-30vh;left:50%;transform:translateX(-50%);width:100vw;height:80vh;background:radial-gradient(ellipse at center top,rgba(201,169,110,.04) 0%,rgba(185,28,28,.02) 40%,transparent 70%);pointer-events:none;z-index:-1}
 </head>
 <body>
 
@@ -213,7 +215,7 @@ ul{list-style:none}
   </div>
 </section>
 
-<section class="section" id="videos" style="background:#08080c">
+<section class="section" id="videos" style="background:linear-gradient(180deg,#08080c,#07070a)">
   <div class="container">
     <div class="section-header fade-up">
       <div class="section-header-left">
@@ -310,7 +312,7 @@ ul{list-style:none}
 </section>
 </main>
 
-<section id="contact" style="padding:32px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03);background:#0a0a0f">
+<section id="contact" style="padding:32px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03);background:transparent">
   <p style="font-size:.82rem;color:rgba(245,240,235,.2)">WeChat / 微信: <span style="color:#c9a96e;font-weight:500">Humiao_Wuhan</span></p>
   <p style="font-size:.75rem;color:rgba(245,240,235,.12);margin-top:8px">&copy; 2026 喵喵酱 · Wuhan</p>
 </section>
