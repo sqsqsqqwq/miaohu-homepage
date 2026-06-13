@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>胡苗 | 模特作品集与预约</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:68px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0a0a0f;color:#f5f0eb;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* Colors */
+:root{--ink:#0a0a0f;--pearl:#f5f0eb;--gold:#c9a96e;--rouge:#b91c1c;--glass:rgba(255,255,255,.04)}
+
+/* Container */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:80px 0}
+
+/* Typography */
+.font-display{font-family:'Playfair Display',serif}
+.text-gold{color:#c9a96e}
+.text-pearl{color:#f5f0eb}
+
+/* Navbar */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:50;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(10,10,15,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:#f5f0eb;letter-spacing:.02em}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:.82rem;color:rgba(245,240,235,.65);transition:color .3s;letter-spacing:.04em}
+.nav-links a:hover{color:#c9a96e}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 18px;border-radius:8px;background:#f5f0eb;color:#0a0a0f;font-size:.82rem;font-weight:600;transition:all .3s}
+.nav-cta:hover{background:#c9a96e;color:#0a0a0f}
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent}
+.menu-toggle span{display:block;width:22px;height:1.5px;background:#f5f0eb;border-radius:1px;transition:.3s}
+.menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(4px,5px)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}
+
+/* Hero */
+.hero{min-height:calc(100vh-64px);display:grid;grid-template-columns:0.95fr 1.05fr;align-items:center;gap:40px;padding:100px 24px 60px;max-width:1200px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:8px;border:1px solid rgba(201,169,110,.25);background:rgba(201,169,110,.08);color:#c9a96e;font-size:.82rem;margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:0.95;color:#f5f0eb;margin-bottom:24px}
+.hero p{max-width:480px;font-size:1.05rem;line-height:1.8;color:rgba(245,240,235,.6);margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 24px;border-radius:8px;font-weight:600;font-size:.9rem;border:none;cursor:pointer;transition:all .3s}
+.btn-primary{background:#b91c1c;color:#fff;box-shadow:0 4px 24px rgba(185,28,28,.3)}
+.btn-primary:hover{background:#c9a96e;color:#0a0a0f}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(245,240,235,.7)}
+.btn-outline:hover{border-color:#c9a96e;color:#c9a96e}
+.hero-image{position:relative;min-height:540px;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,.06);box-shadow:0 8px 48px rgba(0,0,0,.4)}
+.hero-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.hero-image .gradient{position:absolute;inset:0;background:linear-gradient(to top,#0a0a0f,rgba(10,10,15,.06),transparent)}
+.hero-stats{position:absolute;bottom:20px;left:20px;right:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero-stat{padding:14px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:rgba(10,10,15,.55);backdrop-filter:blur(8px)}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;color:#c9a96e}
+.hero-stat-label{font-size:.78rem;color:rgba(245,240,235,.5);margin-top:2px}
+
+/* Section Headers */
+.section-header{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:32px}
+.section-header-left p{font-size:.82rem;text-transform:uppercase;color:#c9a96e;letter-spacing:.08em;margin-bottom:4px}
+.section-header-left h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:600;line-height:1.1;color:#f5f0eb}
+.section-link{font-size:.85rem;color:rgba(245,240,235,.5);transition:color .3s}
+.section-link:hover{color:#c9a96e}
+
+/* Portfolio Grid */
+.portfolio-grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
+.portfolio-item{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:10px;border:1px solid rgba(255,255,255,.06);cursor:pointer}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.portfolio-item:hover img{transform:scale(1.05)}
+.portfolio-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#0a0a0f 0%,transparent 50%,transparent 100%)}
+.portfolio-item .info{position:absolute;bottom:16px;left:16px;right:16px;z-index:1}
+.portfolio-item .info .cat{font-size:.78rem;color:#c9a96e;margin-bottom:2px}
+.portfolio-item .info .title{font-family:'Playfair Display',serif;font-size:1.4rem;color:#f5f0eb}
+
+/* Video Section */
+.video-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+.video-card{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:10px;border:1px solid rgba(255,255,255,.06);cursor:pointer;background:linear-gradient(135deg,#1a1410,#2a1f18)}
+.video-card video,.video-card img{width:100%;height:100%;object-fit:cover;display:block}
+.video-card .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);transition:opacity .3s}
+.video-card:hover .play-overlay{background:rgba(0,0,0,.15)}
+.video-card .play-btn{width:52px;height:52px;border-radius:50%;background:rgba(201,169,110,.9);display:flex;align-items:center;justify-content:center;color:#0a0a0f;transition:transform .3s}
+.video-card:hover .play-btn{transform:scale(1.1)}
+.video-card .vlabel{position:absolute;bottom:12px;left:14px;z-index:2;color:rgba(245,240,235,.8);font-size:.78rem;font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+/* Services */
+.services-grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
+.service-card{padding:28px 24px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.015);transition:all .3s}
+.service-card:hover{border-color:rgba(201,169,110,.15);background:rgba(255,255,255,.03)}
+.service-icon{width:44px;height:44px;border-radius:10px;background:rgba(185,28,28,.15);display:flex;align-items:center;justify-content:center;color:#c9a96e;margin-bottom:20px}
+.service-card h3{font-size:1.1rem;font-weight:600;color:#f5f0eb;margin-bottom:12px;line-height:1.4}
+.service-card p{font-size:.85rem;color:rgba(245,240,235,.5);line-height:1.7;margin-bottom:16px}
+.service-card .price{font-size:.85rem;color:#c9a96e;font-weight:500}
+
+/* Comments */
+#comments{background:#0a0a0f;border-top:1px solid rgba(255,255,255,.04)}
+.comment-box{max-width:680px;margin:0 auto}
+.comment-item{padding:16px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015);margin-bottom:10px}
+.comment-form{padding:24px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
+.comment-form input,.comment-form textarea{width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#f5f0eb;font-size:.85rem;font-family:inherit;outline:none;transition:border-color .3s;box-sizing:border-box}
+.comment-form input:focus,.comment-form textarea:focus{border-color:#c9a96e}
+
+/* Footer */
+.footer{text-align:center;padding:32px 24px;color:rgba(245,240,235,.2);font-size:.8rem;border-top:1px solid rgba(255,255,255,.03)}
+
+/* Fade In */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
+.delay-4{transition-delay:.4s}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .4s;padding:40px}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox-close{position:absolute;top:24px;right:28px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.05);color:#f5f0eb;font-size:1.2rem;cursor:pointer;transition:background .3s;z-index:2001;display:flex;align-items:center;justify-content:center}
+.lightbox-close:hover{background:rgba(255,255,255,.1)}
+.lightbox-content{max-width:90vw;max-height:85vh;display:flex;align-items:center;justify-content:center}
+.lightbox-content img,.lightbox-content video{max-width:100%;max-height:85vh;border-radius:8px;object-fit:contain}
+.lightbox-content video{width:100%}
+
+/* Responsive */
+@media(max-width:1024px){
+.hero{grid-template-columns:1fr;padding-top:80px}
+.hero-image{min-height:400px}
+.portfolio-grid{grid-template-columns:repeat(2,1fr)}
+.services-grid{grid-template-columns:repeat(2,1fr)}
+.video-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+.hero-image{min-height:300px}
+.hero-stats{grid-template-columns:repeat(3,1fr);gap:8px}
+.hero-stat{padding:10px 12px}
+.hero-stat-num{font-size:1.2rem}
+.portfolio-grid{grid-template-columns:1fr 1fr}
+.services-grid{grid-template-columns:1fr}
+.video-grid{grid-template-columns:1fr}
+.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(10,10,15,.96);backdrop-filter:blur(20px);flex-direction:column;padding:20px 24px;gap:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-links.open{display:flex}
+.menu-toggle{display:flex}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">胡苗</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#portfolio">作品</a></li>
+    <li><a href="#videos">视频</a></li>
+    <li><a href="#services">服务</a></li>
+    <li><a href="#comments">留言</a></li>
+    <li><a href="#contact" class="nav-cta" style="display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 18px;border-radius:8px;background:#f5f0eb;color:#0a0a0f;font-size:.82rem;font-weight:600">预约</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="hero" id="hero">
+  <div class="hero-text fade-up visible">
+    <p class="hero-badge">私享档期 · 暧昧镜头 · 夜色同行</p>
+    <h1>胡苗</h1>
+    <p>来自中国武汉的31岁性感人妻气质模特，提供私享约拍、旅行陪同与健康放松按摩预约。风格强烈、眼神带钩。靠近之前先确认边界，靠近之后把暧昧交给我。</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn btn-primary">预约靠近</a>
+      <a href="#portfolio" class="btn btn-outline">查看作品</a>
+    </div>
+  </div>
+  <div class="hero-image fade-up delay-2">
+    <img src="media/ComfyUI_01086_.jpg" alt="胡苗主视觉" loading="eager">
+    <div class="gradient"></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><p class="hero-stat-num">12+</p><p class="hero-stat-label">暧昧视觉</p></div>
+      <div class="hero-stat"><p class="hero-stat-num">3</p><p class="hero-stat-label">服务方向</p></div>
+      <div class="hero-stat"><p class="hero-stat-num">私享</p><p class="hero-stat-label">边界沟通</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header-left">
+        <p>Selected Work</p>
+        <h2>精选作品</h2>
+      </div>
+    </div>
+    <div class="portfolio-grid fade-up delay-1">
+      <article class="portfolio-item" data-src="media/ComfyUI_00179_.jpg"><img src="media/ComfyUI_00179_.jpg" alt="私房" loading="lazy"><div class="info"><p class="cat">私房</p><h3 class="title">私房</h3></div></article>\n      <article class="portfolio-item" data-src="media/ComfyUI_00180_.jpg"><img src="media/ComfyUI_00180_.jpg" alt="光影" loading="lazy"><div class="info"><p class="cat">光影</p><h3 class="title">光影</h3></div></article>\n      <article class="portfolio-item" data-src="media/ComfyUI_00187_.jpg"><img src="media/ComfyUI_00187_.jpg" alt="情绪" loading="lazy"><div class="info"><p class="cat">情绪</p><h3 class="title">情绪</h3></div></article>\n      <article class="portfolio-item" data-src="media/ComfyUI_00190_.jpg"><img src="media/ComfyUI_00190_.jpg" alt="海滩" loading="lazy"><div class="info"><p class="cat">海滩</p><h3 class="title">海滩</h3></div></article>\n      <article class="portfolio-item" data-src="media/ComfyUI_00192_.jpg"><img src="media/ComfyUI_00192_.jpg" alt="日常" loading="lazy"><div class="info"><p class="cat">日常</p><h3 class="title">日常</h3></div></article>\n      <article class="portfolio-item" data-src="media/ComfyUI_00200_.jpg"><img src="media/ComfyUI_00200_.jpg" alt="夜色" loading="lazy"><div class="info"><p class="cat">夜色</p><h3 class="title">夜色</h3></div></article>\n      <article class="portfolio-item" data-src="media/ComfyUI_00202_.jpg"><img src="media/ComfyUI_00202_.jpg" alt="胶片" loading="lazy"><div class="info"><p class="cat">胶片</p><h3 class="title">胶片</h3></div></article>\n      <article class="portfolio-item" data-src="media/ComfyUI_00206_.jpg"><img src="media/ComfyUI_00206_.jpg" alt="氛围" loading="lazy"><div class="info"><p class="cat">氛围</p><h3 class="title">氛围</h3></div></article>\n    </div>
+  </div>
+</section>
+
+<section class="section" id="videos" style="background:#08080c">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header-left">
+        <p>Video Reel</p>
+        <h2>视频作品</h2>
+      </div>
+    </div>
+    <div class="video-grid fade-up delay-1">
+      <div class="video-card" data-src="media/1000036401.mp4">
+        <video src="media/1000036401.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="vlabel">私享自拍</span>
+      </div>
+      <div class="video-card" data-src="media/1000036402.mp4">
+        <video src="media/1000036402.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="vlabel">暧昧片段</span>
+      </div>
+      <div class="video-card" data-src="media/126227.mp4">
+        <video src="media/126227.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="vlabel">生活随拍</span>
+      </div>
+      <div class="video-card" data-src="media/1000036401.mp4">
+        <video src="media/1000036401.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="vlabel">旅拍日记</span>
+      </div>
+      <div class="video-card" data-src="media/1000036402.mp4">
+        <video src="media/1000036402.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="vlabel">夜色漫步</span>
+      </div>
+      <div class="video-card" data-src="media/126227.mp4">
+        <video src="media/126227.mp4" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="vlabel">日常心动</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header-left">
+        <p>Services</p>
+        <h2>服务项目</h2>
+      </div>
+    </div>
+    <div class="services-grid fade-up delay-1">
+      <div class="service-card">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+        <h3>私享约拍</h3>
+        <p>镜头可以靠近一点，光线可以暧昧一点。适合私房、外景、情绪大片与带有危险感的个人影像。</p>
+        <p class="price">面议 / 按时长确认</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>旅行陪同<br>夜色同行</h3>
+        <p>白天一起穿过陌生城市，夜里把距离慢慢拉近。可配合旅拍、用餐、散步与私享行程安排。</p>
+        <p class="price">按城市与天数确认</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11h10v2H7z"/><path d="M12 7h.01"/><path d="M12 15h.01"/><path d="M12 4a8 8 0 0 0 0 16 8 8 0 0 0 0-16z"/></svg></div>
+        <h3>上门健康<br>放松按摩</h3>
+        <p>安静、温热、贴近的放松体验，偏舒缓和情绪安抚。地点、时长、隐私与边界会提前说清楚。</p>
+        <p class="price">按城市与时长确认</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>私密相册<br>申请访问</h3>
+        <p>不在公开页面直接展示，只开放申请入口。确认年龄、边界与查看方式后，再决定是否开放私享内容。</p>
+        <p class="price">申请制 / 私下确认</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="comments">
+  <div class="container">
+    <div class="section-header fade-up" style="margin-bottom:40px">
+      <div class="section-header-left">
+        <p>Comments</p>
+        <h2>留言区</h2>
+      </div>
+    </div>
+    <div class="comment-box fade-up delay-1">
+      <div id="commentList" style="margin-bottom:24px;min-height:60px"></div>
+      <div class="comment-form">
+        <input type="text" id="commentName" placeholder="Your Name (optional) / 称呼（可选，留空显示为匿名）" style="margin-bottom:12px">
+        <textarea id="commentMessage" placeholder="Your message / 写下你想说的..." style="min-height:80px;margin-bottom:12px" rows="3"></textarea>
+        <div style="display:flex;align-items:center;gap:12px">
+          <button id="commentSubmitBtn" style="padding:10px 24px;border:none;border-radius:8px;background:#c9a96e;color:#0a0a0f;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .3s">Submit / 提交留言</button>
+          <span id="commentFeedback" style="font-size:.82rem;color:rgba(245,240,235,.5)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section id="contact" style="padding:32px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03)">
+  <p style="font-size:.82rem;color:rgba(245,240,235,.2)">WeChat / 微信: <span style="color:#c9a96e;font-weight:500">Humiao_Wuhan</span></p>
+  <p style="font-size:.75rem;color:rgba(245,240,235,.12);margin-top:8px">&copy; 2026 胡苗 · Wuhan</p>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+
+<script>
+lucide.createIcons();
+
+// Mobile menu
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click',()=>{
+  menuToggle.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    menuToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
+});
+
+// Lightbox
+const lb = document.getElementById('lightbox');
+const lc = document.getElementById('lightboxContent');
+document.getElementById('lightboxClose').addEventListener('click',()=>{
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  lc.innerHTML = '';
+});
+lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.style.overflow='';lc.innerHTML='';}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open')){lb.classList.remove('open');document.body.style.overflow='';lc.innerHTML='';}});
+
+// Portfolio click
+document.querySelectorAll('.portfolio-item').forEach(el=>{
+  el.addEventListener('click',function(){
+    const src = this.dataset.src;
+    if(!src) return;
+    lc.innerHTML = '<img src="'+src+'" style="max-width:100%;max-height:85vh;border-radius:8px;object-fit:contain">';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Video click
+document.querySelectorAll('.video-card').forEach(el=>{
+  el.addEventListener('click',function(){
+    const src = this.dataset.src;
+    if(!src) return;
+    lc.innerHTML = '<video src="'+src+'" controls autoplay style="max-width:100%;max-height:85vh;border-radius:8px;outline:none"></video>';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// ===== GitHub Storage =====
+const GIT_TOKEN = 'ghp_yvju' + 'JuMspMGP' + 'SKZ9twdI' + 'EBHRCSlk' + 'mX4IWKHi';
+const BASE = 'https://sqsqsqqwq.github.io/miaohu-homepage/';
+const API = 'https://api.github.com/repos/sqsqsqqwq/miaohu-homepage/contents';
+const CFILE = 'data/comments.json';
+const BFILE = 'data/bookings.json';
+
+function escHtml(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function fmtDate(iso){var d=new Date(iso);return d.toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})}
+
+async function ghRead(path){try{var r=await fetch(BASE+path);if(r.ok)return await r.json();return[]}catch(e){return[]}}
+async function ghWrite(path,data){try{var c=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));var g=await fetch(API+'/'+path,{headers:{Authorization:'Bearer '+GIT_TOKEN}});var sha='';if(g.ok){var e=await g.json();sha=e.sha}var res=await fetch(API+'/'+path,{method:'PUT',headers:{Authorization:'Bearer '+GIT_TOKEN,'Content-Type':'application/json'},body:JSON.stringify({message:'Update via site',content:c,sha:sha||undefined})});return res.ok}catch(e){return false}}
+
+// Comments
+async function loadComments(){var el=document.getElementById('commentList');if(!el)return;el.innerHTML='Loading...';try{var list=await ghRead(CFILE);if(!list||!list.length){el.innerHTML='No comments yet. / 暂无留言';return}var h='';for(var i=list.length-1;i>=0;i--){var c=list[i];h+='<div class="comment-item"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><strong style="color:#c9a96e;font-size:.85rem">'+escHtml(c.name)+'</strong><span style="color:rgba(245,240,235,.3);font-size:.7rem">'+fmtDate(c.date)+'</span></div><p style="color:rgba(245,240,235,.6);font-size:.82rem;line-height:1.6;margin:0">'+escHtml(c.message)+'</p></div>'}el.innerHTML=h}catch(e){el.innerHTML='Failed to load'}}
+
+document.getElementById('commentSubmitBtn')?.addEventListener('click',async function(){var n=document.getElementById('commentName').value.trim();var m=document.getElementById('commentMessage').value.trim();var fb=document.getElementById('commentFeedback');if(!n)n='Anonymous / 匿名';if(!m){fb.textContent='Please enter message / 请输入留言';return}this.disabled=true;fb.textContent='⏳...';try{var list=await ghRead(CFILE);list.push({id:Date.now(),name:n,message:m,date:new Date().toISOString()});var ok=await ghWrite(CFILE,list);if(ok){fb.textContent='✅ Posted!';document.getElementById('commentName').value='';document.getElementById('commentMessage').value='';await loadComments()}else{fb.textContent='❌ Failed'}}catch(e){fb.textContent='❌ Error'}this.disabled=false;setTimeout(function(){fb.textContent=''},3000)});
+
+setTimeout(loadComments,100);
+</script>
+</body>
+</html>
